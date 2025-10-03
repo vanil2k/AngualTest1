@@ -1,0 +1,14 @@
+<app-header></app-header>
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+<div class="container">
+  <div class="notes-card">
+    <h2>NOTES</h2>
+    <app-notes-section [searchQuery]="searchQuery"></app-notes-section>
+  </div>
+  
+  <div class="todos-card">
+    <h2>TODO'S</h2>
+    <app-todos-section [searchQuery]="searchQuery"></app-todos-section>
+  </div>
+</div>

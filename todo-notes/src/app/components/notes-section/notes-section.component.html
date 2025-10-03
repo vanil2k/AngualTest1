@@ -1,0 +1,15 @@
+<div class="notes-container">
+  <div class="input-section">
+    <input [(ngModel)]="newTitle" placeholder="Note Title" class="note-input" />
+    <input [(ngModel)]="newContent" placeholder="Note Content" class="note-input" />
+    <button (click)="addNote()" class="add-btn">ADD NOTE</button>
+  </div>
+  
+  <div class="notes-grid">
+    <div class="note-card" *ngFor="let note of filteredNotes">
+      <button class="delete-btn" (click)="deleteNote(note.id)">×</button>
+      <h3 class="note-title">{{ note.title }}</h3>
+      <p class="note-content">{{ note.content }}</p>
+    </div>
+  </div>
+</div>

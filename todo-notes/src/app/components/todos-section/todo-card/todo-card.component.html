@@ -1,0 +1,11 @@
+<div class="todo-card">
+  <h3>{{todo.title}}</h3>
+  <ul>
+    <li *ngFor="let task of todo.tasks">
+      <input type="checkbox" [checked]="task.done" (change)="toggleTask(task.id)" />
+      <span [class.done]="task.done">{{task.text}}</span>
+    </li>
+  </ul>
+  <input [(ngModel)]="newTaskText" placeholder="New task" />
+  <button (click)="addTask()">Add Task</button>
+</div>

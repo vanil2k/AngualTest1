@@ -1,0 +1,45 @@
+<div class="todos-container">
+  <div class="input-section">
+    <input [(ngModel)]="newTodoTitle" placeholder="Todo Title" class="todo-input" />
+    <button (click)="addTodo()" class="add-btn">ADD TODO</button>
+  </div>
+  
+  <div class="todos-list">
+    <div class="todo-item" *ngFor="let todo of filteredTodos">
+      <button class="delete-btn" (click)="deleteTodo(todo.id)">×</button>
+      <div class="todo-content">
+        <div class="todo-title">{{ todo.title }}</div>
+        <div class="todo-tasks">
+          <div class="task-item" *ngFor="let task of todo.tasks">
+            <input 
+              type="checkbox" 
+              [id]="'task-' + task.id" 
+              [checked]="task.done" 
+              (change)="toggleTask(todo.id, task.id)" 
+            />
+            <label 
+              [for]="'task-' + task.id" 
+              [class.completed]="task.done"
+            >
+              {{ task.text }}
+            </label>
+          </div>
+        </div>
+        <div class="add-task-section">
+          <input 
+            type="text" 
+            [(ngModel)]="newTaskTexts[todo.id]" 
+            placeholder="Add new task" 
+            class="add-task-input" 
+          />
+          <button 
+            (click)="addTask(todo.id)" 
+            class="add-task-btn"
+          >
+            Add Task
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
